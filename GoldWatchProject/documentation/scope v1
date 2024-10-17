@@ -1,0 +1,26 @@
+1.        Twoje walory  - Zloto, srebro, platyna
+    i. Aktualna ilosc dla roznych wielkosci
+    ii. Aktualna wartosc dla roznych wielkosci w cenach sprzedazy
+2.        Wykres zmian w czasie
+    a. Tydzien
+    b. 1 miesiac
+    c. 3 miesiace
+    d. 6 miesiecy
+    e. 1 rok
+    f. 3 lata
+    g. 5 lat
+    h. 10 lat
+    i. Od poczatku
+3.        Zmiana waluty
+4.        Rejestracja zakupu
+    a. Zloto, srebro, platyna
+    i. Data
+    ii. Jednostka miary
+    iii. Cena zakupu
+    iv. Ilosc
+5.        Konfiguracja
+    a. Notyfikacja o zmianach cen (zloto, srebro, platyna)
+    i. Powyzej wartosci
+    ii. Ponizej wartosci
+    b. Waluta domyslna
+    c. Wyglad interfejsu(?)
