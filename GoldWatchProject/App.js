@@ -6,7 +6,7 @@ console.log("App executed now");
 
   return (
     <View style={styles.container}>
-      <Text>TEST ZŁOTO993 TEST</Text>
+      <Text>TEST ZŁOTO993 TEST Merge Test</Text>
       <StatusBar style="auto" />
     </View>
   );
