@@ -4,13 +4,9 @@ import { StyleSheet, Text, View } from 'react-native';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 
 export default function App() {
-console.log("App executed now");
-
   return (
-    <View style={styles.container}>
-      <Text>TEST ZŁOTO993 TEST Merge Test2</Text>
-      <StatusBar style="auto" />
-    </View>
+    <WelcomeScreen></WelcomeScreen>
+
   );
 }
 
