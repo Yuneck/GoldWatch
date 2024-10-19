@@ -5,12 +5,11 @@ function WelcomeScreen(props) {
     return (
         <View style={styles.container}>
             <ImageBackground 
-            resizeMode="contain"            
+            //resizeMode="contain"            
             style= {styles.background}
             source={require('../assets/goldbar.png')}
             >
-                <View style={styles.myAssets}></View>
-                <View style={styles.registerAssets}></View>
+                
 
             </ImageBackground>
         </View>
@@ -26,6 +25,9 @@ const styles = StyleSheet.create({
         backgroundColor: "black",
         flex: 1,
     },
+    /*
+    <View style={styles.myAssets}></View>
+                <View style={styles.registerAssets}></View>
     myAssets: {
         width: "20%",
         height: 70,
@@ -36,6 +38,6 @@ const styles = StyleSheet.create({
         height: 70,
         backgroundColor: "gold",
     }
-
+*/
 })
 export default WelcomeScreen;
