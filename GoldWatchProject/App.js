@@ -1,15 +1,5 @@
-
-import { StyleSheet, Text, TouchableHighlight, 
-    View, 
-    Image, 
-    SafeAreaView, 
-    Button, 
-    Alert, 
-    Platform, 
-    StatusBar,
-} from 'react-native';
-import { useDeviceOrientation } from '@react-native-community/hooks';
-import WelcomeScreen from './app/screens/WelcomeScreen';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
 
 import WelcomeScreen from './app/screens/WelcomeScreen';
 
