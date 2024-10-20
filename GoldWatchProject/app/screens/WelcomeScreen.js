@@ -1,8 +1,6 @@
 import React from 'react';
 import { ImageBackground, StyleSheet, View } from 'react-native';
 
-
-
 function WelcomeScreen(props) {
     return (
         <View style={styles.container}>
@@ -11,7 +9,7 @@ function WelcomeScreen(props) {
             style= {styles.background}
             source={require('../assets/WelcomeScreen.png')}
             >
-                
+            
             </ImageBackground>
         </View>
     );
