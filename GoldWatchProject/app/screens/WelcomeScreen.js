@@ -7,7 +7,7 @@ function WelcomeScreen(props) {
             <ImageBackground 
             resizeMode="contain"            
             style= {styles.background}
-            source={require('../assets/goldbar.png')}
+            source={require('../assets/WelcomeScreen2.png')}
             >
             </ImageBackground>
         </View>
