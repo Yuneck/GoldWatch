@@ -6,6 +6,7 @@ import WelcomeScreen from './app/screens/WelcomeScreen';
 import { StyleSheet, Text, TouchableHighlight, View, Image, SafeAreaView, 
   Button, Alert, Platform, StatusBar} from 'react-native';
 
+
 export default function App() {
 
   return (
