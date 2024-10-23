@@ -18,6 +18,8 @@ const singleAsset = {
     weight: null,
     measurementUnit: '',  //from measurementUnits
     dimension: [], //from dimensionType
+    yearOfEdition: null, //only for coins
+    denomination: '', 
 }
 
 const assetType = {
