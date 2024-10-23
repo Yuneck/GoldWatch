@@ -38,7 +38,7 @@ const measurementUnits = {
 
 const dimensionType = {
     diameter: null, //for coin
-    thikness: null, //for coin and bar
+    thickness: null, //for coin and bar
     lenght: null,   //for bar
     width: null,    //for bar
 }
