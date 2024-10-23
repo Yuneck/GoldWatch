@@ -1,6 +1,6 @@
 import { Image, Platform } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
+//import AsyncStorage from '@react-native-async-storage/async-storage';
+/*
 // Function to convert image to base64 string
 const imageToBase64 = (image: { uri: any; path: any; }) => {
   return new Promise(async (resolve, reject) => {
@@ -40,3 +40,5 @@ const retrieveImage = async (key: string) => {
     console.error('Error retrieving image', error);
 }
 };
+
+*/
