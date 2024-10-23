@@ -1,0 +1,42 @@
+import { Image, Platform } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+// Function to convert image to base64 string
+const imageToBase64 = (image: { uri: any; path: any; }) => {
+  return new Promise(async (resolve, reject) => {
+    const uri = Platform.OS === 'ios' ? image.uri : image.path;
+    const response = await fetch(uri);
+    const base64 = await response.blob().then((blob) => {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(blob);
+        reader.onloadend = () => {
+          resolve(reader.result);
+        };
+        reader.onerror = reject;
+      });
+    });
+    resolve(base64);
+  });
+};
+
+// Function to store image
+const storeImage = async (key: string, image: any) => {
+  try {
+    const base64Image = await imageToBase64(image);
+   // await AsyncStorage.setItem(key, base64Image);
+    console.log('Image stored successfully');
+  } catch (error) {
+    console.error('Error storing image', error);
+  }
+};
+
+// Function to retrieve image
+const retrieveImage = async (key: string) => {
+  try {
+    const base64Image = await AsyncStorage.getItem(key);
+    return base64Image;
+  } catch (error) {
+    console.error('Error retrieving image', error);
+}
+};
