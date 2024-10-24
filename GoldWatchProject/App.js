@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useDeviceOrientation } from '@react-native-community/hooks';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import { StyleSheet, Text, TouchableHighlight, View, Image, SafeAreaView, 
-  Button, Alert, Platform, StatusBar} from 'react-native';
+  Button, Alert, Platform} from 'react-native';
 
 export default function App() {
 
