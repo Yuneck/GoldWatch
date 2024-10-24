@@ -1,106 +1,37 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// Function to add an asset entry to AsyncStorage
-export const addAssetEntry = async (assetType, amount) => {
+const STORAGE_KEY = '@purchases';
+
+// Load purchases data from AsyncStorage
+export const loadPurchasesData = async (setPurchases) => {
   try {
-    const date = new Date().toISOString(); // Current date
-    const newEntry = { date, amount, assetType };
-
-    // Get existing entries
-    const existingEntries = await AsyncStorage.getItem('assetEntries');
-    const entries = existingEntries ? JSON.parse(existingEntries) : [];
-
-    // Add new entry
-    entries.push(newEntry);
-    await AsyncStorage.setItem('assetEntries', JSON.stringify(entries));
-
-    // Update total amount
-    await updateTotalAssets(assetType, amount);
+    const jsonValue = await AsyncStorage.getItem(STORAGE_KEY);
+    const purchases = jsonValue ? JSON.parse(jsonValue) : [];
+    setPurchases(purchases);
   } catch (e) {
-    console.error('Failed to add asset:', e);
+    console.error('Failed to load purchases data:', e);
   }
 };
 
-// Function to update total amount of a specific asset
-const updateTotalAssets = async (assetType, amount) => {
+// Add a new purchase to AsyncStorage and update state
+export const handleAddPurchase = async (newPurchase, setPurchases) => {
   try {
-    const totalAssets = await AsyncStorage.getItem('totalAssets');
-    const totals = totalAssets ? JSON.parse(totalAssets) : { gold: 0, silver: 0, platinum: 0 };
-
-    // Update total amount for the specified asset
-    totals[assetType] += amount;
-
-    // Save updated totals
-    await AsyncStorage.setItem('totalAssets', JSON.stringify(totals));
+    const jsonValue = await AsyncStorage.getItem(STORAGE_KEY);
+    const purchases = jsonValue ? JSON.parse(jsonValue) : [];
+    purchases.push({ ...newPurchase, id: Date.now() }); // Assign a unique ID
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(purchases));
+    setPurchases(purchases); // Update state with the new purchases array
   } catch (e) {
-    console.error('Failed to update total assets:', e);
+    console.error('Failed to add purchase:', e);
   }
 };
 
-// Function to load asset history
-export const loadAssetHistory = async () => {
+// Clear all purchases from AsyncStorage and update state
+export const handleClearPurchases = async (setPurchases) => {
   try {
-    const assetEntries = await AsyncStorage.getItem('assetEntries');
-    return assetEntries ? JSON.parse(assetEntries) : [];
+    await AsyncStorage.removeItem(STORAGE_KEY);
+    setPurchases([]); // Reset state
   } catch (e) {
-    console.error('Failed to load asset history:', e);
-    return [];
+    console.error('Failed to clear purchases:', e);
   }
 };
-
-// Function to load total assets
-export const loadTotalAssets = async () => {
-  try {
-    const totalAssets = await AsyncStorage.getItem('totalAssets');
-    return totalAssets ? JSON.parse(totalAssets) : { gold: 0, silver: 0, platinum: 0 };
-  } catch (e) {
-    console.error('Failed to load total assets:', e);
-    return { gold: 0, silver: 0, platinum: 0 };
-  }
-};
-
-// Function to clear all assets
-export const clearAllAssets = async () => {
-  try {
-    await AsyncStorage.removeItem('assetEntries');  // Clear asset history
-    await AsyncStorage.removeItem('totalAssets');   // Clear total assets
-  } catch (e) {
-    console.error('Failed to clear assets:', e);
-  }
-};
-
-// Function to add an asset and reload the data
-export const addAsset = async (assetType, amount, setAssetHistory, setTotalAssets) => {
-  await addAssetEntry(assetType, amount);
-  loadAssetsData(setAssetHistory, setTotalAssets);
-};
-
-// Function to load all assets data (history and totals)
-export const loadAssetsData = async (setAssetHistory, setTotalAssets) => {
-  const history = await loadAssetHistory();
-  const totals = await loadTotalAssets();
-  setAssetHistory(history);
-  setTotalAssets(totals);
-};
-
-// Function to clear all assets and reload the data
-export const clearAssets = async (setAssetHistory, setTotalAssets) => {
-  await clearAllAssets();
-  loadAssetsData(setAssetHistory, setTotalAssets);
-};
-
-
-export const formatAssetTotals = (totalAssets) => {
-    return {
-      gold: `Gold: ${totalAssets.gold}`,
-      silver: `Silver: ${totalAssets.silver}`,  
-      platinum: `Platinum: ${totalAssets.platinum}`,
-    };
-  };    
-  
-  // Function to format asset history for display
-  export const formatAssetHistory = (assetHistory) => {
-    return assetHistory.map((entry, index) => {
-      return `${entry.date} - ${entry.assetType}: ${entry.amount}`;
-    });
-  };
