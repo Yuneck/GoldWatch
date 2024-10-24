@@ -40,5 +40,4 @@ const retrieveImage = async (key: string) => {
     console.error('Error retrieving image', error);
 }
 };
-
 */
