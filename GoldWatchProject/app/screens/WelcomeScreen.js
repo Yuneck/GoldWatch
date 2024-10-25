@@ -3,10 +3,10 @@ import { ImageBackground, StyleSheet, View, Text } from 'react-native';
 
 import MainScreenMenu from '../components/MainScreenMenu';
 import SummaryInfo from '../components/SummaryInfo';
-import MyAssetsScreen from '../components/MyAssetsScreen';
-import AnalyticsScreen from '../components/AnalyticsScreen'; // Add this line
-import MarketTrendsScreen from '../components/MarketTrendsScreen'; // Add this line
-import PreferencesScreen from '../components/PreferencesScreen'; // Add this line
+import MyAssetsScreen from './MyAssetsScreen';
+import AnalyticsScreen from './AnalyticsScreen'; // Add this line
+import MarketTrendsScreen from './MarketTrendsScreen'; // Add this line
+import PreferencesScreen from './PreferencesScreen'; // Add this line
 
 function WelcomeScreen(props) {
     const [selectedPage, setSelectedPage] = useState('Summary');
@@ -30,6 +30,7 @@ function WelcomeScreen(props) {
               <>
                 <Text title={selectedPage} />
                 <SummaryInfo />
+                <MainScreenMenu onPageChange={handlePageChange} />
               </>
             );
         }

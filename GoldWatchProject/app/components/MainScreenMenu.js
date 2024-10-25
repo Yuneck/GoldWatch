@@ -23,22 +23,22 @@ const MainScreenMenu = ({ onPageChange }) => {
     </TouchableOpacity>
   );
 
-const AnalitycsButton = () => (
-    <TouchableOpacity style={styles.button}>
+const AnalitycsButton = ({ onPress }) => (
+    <TouchableOpacity style={styles.button} onPress={onPress}>
         <Image style={styles.image} source={require("../assets/icons/analytics.png")} />    
         <Text style={styles.label}>Analytics</Text>
     </TouchableOpacity>
 );
 
-const MarketTrendsButton = () => (
-    <TouchableOpacity style={styles.button}>
+const MarketTrendsButton = ({ onPress }) => (
+    <TouchableOpacity style={styles.button} onPress={onPress}>
         <Image style={styles.image} source={require("../assets/icons/marketTrends.png")} />    
         <Text style={styles.label}>Market Trends</Text>
     </TouchableOpacity>
 );
 
-const PreferencesButton = () => (
-    <TouchableOpacity style={styles.button}>
+const PreferencesButton = ({ onPress }) => (
+    <TouchableOpacity style={styles.button} onPress={onPress}>
         <Image style={styles.image} source={require("../assets/icons/preferences.png")} />    
         <Text style={styles.label}>Preferences</Text>
     </TouchableOpacity>
