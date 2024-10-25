@@ -1,49 +1,17 @@
-import React, { useState } from 'react';
-import { ImageBackground, StyleSheet, View, Text } from 'react-native';
+import React from 'react';
+import { ImageBackground, StyleSheet, View } from 'react-native';
 
 import MainScreenMenu from '../components/MainScreenMenu';
 import SummaryInfo from '../components/SummaryInfo';
-import MyAssetsScreen from './MyAssetsScreen';
-import AnalyticsScreen from './AnalyticsScreen'; // Add this line
-import MarketTrendsScreen from './MarketTrendsScreen'; // Add this line
-import PreferencesScreen from './PreferencesScreen'; // Add this line
 
 function WelcomeScreen(props) {
-    const [selectedPage, setSelectedPage] = useState('Summary');
-
-    const handlePageChange = (page) => {
-        setSelectedPage(page);
-      };
-
-      const renderPage = () => {
-        switch (selectedPage) {
-          case 'MyAssets':
-            return <MyAssetsScreen />;
-          case 'Analytics':
-            return <AnalyticsScreen />; // Add this case
-          case 'MarketTrends':
-            return <MarketTrendsScreen />; // Add this case
-          case 'Preferences':
-            return <PreferencesScreen />; // Add this case
-          default:
-            return (
-              <>
-                <Text title={selectedPage} />
-                <SummaryInfo />
-                <MainScreenMenu onPageChange={handlePageChange} />
-              </>
-            );
-        }
-      };
-
     return (
         <View style={styles.container}>
             <ImageBackground 
-                resizeMode="cover"
+                resizeMode="cover" // Changed to cover to fill the screen fully
                 style={styles.background}
                 source={require('../assets/WelcomeScreen.png')}
             >
-                {renderPage()}
                 <SummaryInfo />
                 <MainScreenMenu />  
             </ImageBackground>
