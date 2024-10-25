@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, useWindowDimensions } from 'react-native';
 import { summary } from '../data/UserData'; // Updated import path
 
 function SummaryInfo() {
+
     const [selectedTabIndex, setSelectedTabIndex] = useState(0); // Keep track of the selected tab
+    const { height, width } = useWindowDimensions();
 
     const tabs = summary.ownedMetals.map((metal) => ({
         title: metal,
@@ -15,8 +17,15 @@ function SummaryInfo() {
     };
 
     return (
-        <View style={styles.overlay}>
-            
+        <View style={[
+            styles.overlay,
+            {
+                height: height * 0.3,
+                width: width * 0.9,
+                top: height * 0.1,
+                left: width * 0.05,
+            }
+        ]}>
             <View style={styles.tabContainer}>
                 {tabs.map((tab, index) => (
                     <TouchableOpacity
@@ -37,15 +46,11 @@ function SummaryInfo() {
 
 const styles = StyleSheet.create({
     overlay: {
-        flexDirection: 'row', // Keep the overall layout as vertical
+        flexDirection: 'row',
         padding: 10,
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
         borderRadius: 15,
-        height: '30%', // Set height as needed
-        width: '90%', // Set width as needed
         position: 'absolute',
-        top: 70,
-        left: '5%', // Center it horizontally
     },
     title: {
         color: '#FFD700',

@@ -1,6 +1,58 @@
 const assets = [];
 
-const purchases = [];
+const purchases = [
+    {
+      id: 1,
+      date: '2024-10-25',
+      value: 1000,
+      currency: 'USD',
+      sellerName: 'Gold & Silver Co.',
+      assetsIds: [101, 102, 103],
+      multipack: true,
+      multipackQuantity: 3,
+    },
+    {
+      id: 2,
+      date: '2024-10-26',
+      value: 500,
+      currency: 'EUR',
+      sellerName: 'Precious Metals Inc.',
+      assetsIds: [104],
+      multipack: false,
+      multipackQuantity: null,
+    },
+    {
+      id: 3,
+      date: '2024-10-27',
+      value: 750,
+      currency: 'GBP',
+      sellerName: 'Silver Traders Ltd.',
+      assetsIds: [105, 106],
+      multipack: true,
+      multipackQuantity: 2,
+    },
+    {
+      id: 4,
+      date: '2024-10-28',
+      value: 1200,
+      currency: 'USD',
+      sellerName: 'Platinum Exchange',
+      assetsIds: [107, 108, 109, 110],
+      multipack: false,
+      multipackQuantity: null,
+    },
+    {
+      id: 5,
+      date: '2024-10-29',
+      value: 2000,
+      currency: 'JPY',
+      sellerName: 'Global Metals Market',
+      assetsIds: [111, 112],
+      multipack: true,
+      multipackQuantity: 2,
+    }
+  ];
+
 
 const purchase = {
     id: null,
@@ -12,6 +64,7 @@ const purchase = {
     nultipack: null,
     multipackQuantity: null,
 }
+
 
 const singleAsset = {
     id: null,
@@ -47,7 +100,7 @@ const picture = {
 }
 
 const summary = {
-    ownedMetals: ['Gold','Silver','Platinum','Palladium'],
+    ownedMetals: ['Gold','Silver','Platinum'],
     ownedBars: [], // gold, silver,...
     ownedCoins: [], // gold, silver,...
     totalValueOfPurchases: null,
@@ -61,6 +114,24 @@ const summary = {
     totalValueOfSilverCoins: null,
     totalValueOfPlatinumCoins: null,
     totalValueOfPalladiumCoins: null,
+
+    /*
+    totalGramsOfGoldBars: null,
+    totalKgOfGoldBars: null,
+    totalOzOfGoldBars: null,
+
+    totalGramsOfSilverBars: null,
+    totalKgOfSilverBars: null,
+    totalOzOfSilverBars: null,
+
+    totalGramsOfPlatinumBars: null,
+    totalKgOfPlatinumBars: null,
+    totalOzOfPlatinumBars: null,
+
+    totalGramsOfPalladiumBars: null,
+    totalKgOfPalladiumBars: null,
+    totalOzOfPalladiumBars: null,
+*/
 }
 
 const summaryGold = {
