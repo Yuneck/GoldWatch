@@ -26,7 +26,6 @@ function SummaryInfo() {
                 left: width * 0.05,
             }
         ]}>
-        
             <View style={styles.tabContainer}>
                 {tabs.map((tab, index) => (
                     <TouchableOpacity
