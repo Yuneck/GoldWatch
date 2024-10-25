@@ -1,27 +1,23 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity, Image, Text } from 'react-native';
 
-const MainScreenMenu = ({ onPageChange }) => {
-    const handleButtonPress = (page) => {
-      onPageChange(page);
-    };
-  
+const MainScreenMenu = () => {
     return (
-      <View style={styles.mainMenuContainer}>
-        <MyAssetsButton onPress={() => handleButtonPress('MyAssets')} />
-        <AnalitycsButton onPress={() => handleButtonPress('Analytics')} />
-        <MarketTrendsButton onPress={() => handleButtonPress('MarketTrends')} />
-        <PreferencesButton onPress={() => handleButtonPress('Preferences')} />
-      </View>
+        <View style={styles.mainMenuContainer}>
+            <MyAssetsButton />
+            <AnalitycsButton />
+            <MarketTrendsButton />
+            <PreferencesButton />
+        </View>
     );
-  };
+}
 
-  const MyAssetsButton = ({ onPress }) => (
-    <TouchableOpacity style={styles.button} onPress={onPress}>
-      <Image style={styles.image} source={require('../assets/icons/myAssets.png')} />
-      <Text style={styles.label}>My Assets</Text>
+const MyAssetsButton = () => (
+    <TouchableOpacity style={styles.button}>
+        <Image style={styles.image} source={require("../assets/icons/myAssets.png")} />    
+        <Text style={styles.label}>My Assets</Text>
     </TouchableOpacity>
-  );
+);
 
 const AnalitycsButton = () => (
     <TouchableOpacity style={styles.button}>
