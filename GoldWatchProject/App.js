@@ -4,18 +4,6 @@ import WelcomeScreen from './app/screens/WelcomeScreen';
 import { StyleSheet, Text, View} from 'react-native';
 import SQLite from 'react-native-sqlite-storage';
 
-const db = SQLite.openDatabase(
-  {
-    name: 'testDB',
-    location: 'default',
-  },
-  () => {
-    console.log('Database opened successfully');
-  },
-  error => {console.log(error)}
-);
-
-
 
 export default function App() {
 
