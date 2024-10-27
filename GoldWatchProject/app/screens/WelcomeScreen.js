@@ -4,7 +4,20 @@ import { ImageBackground, StyleSheet, View } from 'react-native';
 import MainScreenMenu from '../components/MainScreenMenu';
 import SummaryInfo from '../components/SummaryInfo';
 
+import SQLite from 'react-native-sqlite-storage';
+
 function WelcomeScreen(props) {
+
+    const db = SQLite.openDatabase(
+        {
+          name: 'MainDB',
+          location: 'default',
+        },
+        () => {},
+        error => { console.log(error) }
+      );
+
+
     return (
         <View style={styles.container}>
             <ImageBackground 
