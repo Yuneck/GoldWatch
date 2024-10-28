@@ -2,11 +2,14 @@
 import React from 'react';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import { StyleSheet, Text, View} from 'react-native';
+//import {openDatabase} from 'react-native-sqlite-storage';
 
 export default function App() {
 
-  return (
 
+
+  return (
+    
     <WelcomeScreen></WelcomeScreen>
    
   );
