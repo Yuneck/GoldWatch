@@ -1,0 +1,64 @@
+# Node.js modules
+node_modules/
+
+# Environment variable files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# SQLite database files
+*.sqlite
+*.sqlite3
+
+# Compiled files
+dist/
+build/
+*.out
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+
+# Expo/React Native files
+.expo/
+.expo-shared/
+
+# Android files
+android/.gradle
+android/.idea
+android/local.properties
+android/app/build/
+
+# iOS files
+ios/Pods
+ios/Podfile.lock
+ios/build/
+
+# Visual Studio Code settings
+.vscode/
+
+# Metro bundler cache
+/metro-cache/
+
+# Prevent git from tracking the database file or test files
+database/goldPrice.json
+goldPrice.json
+
+# Other sensitive files or secrets
+config/secrets.json
+keys/
+certs/
