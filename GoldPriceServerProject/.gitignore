@@ -62,3 +62,4 @@ goldPrice.json
 config/secrets.json
 keys/
 certs/
+days.json
