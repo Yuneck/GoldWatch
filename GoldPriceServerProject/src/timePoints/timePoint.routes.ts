@@ -48,6 +48,33 @@ timePointRouter.post("/timePoint", async (req : any, res : any) => {
     }
 })
 
+timePointRouter.post("/newTimePoints", async (req : Request, res : any) => {
+    try {
+        const {latestTimestamp} = req.body
+
+        if (!latestTimestamp) {
+            return res.status(StatusCodes.BAD_REQUEST).json({error : `Please provide the latest timestamp`})
+        }
+
+        const allTimePoints = await database.findAll()
+
+        function filterByTimestamp(whatToFiltr: TimePoint[], givenTimestamp: number): TimePoint[] {
+            return allTimePoints.filter((timePoint) => timePoint.timestamp > latestTimestamp);
+        }
+
+        const newTimePoints = filterByTimestamp(allTimePoints, latestTimestamp);
+
+        if (!newTimePoints) {
+            return res.status(StatusCodes.NOT_FOUND).json({error : `No new timePoints found!`})
+        }
+
+        return res.status(StatusCodes.OK).json({total : newTimePoints.length, newTimePoints})
+        
+    } catch (error) {
+        return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
+    }
+})
+
 timePointRouter.put("/timePoint/:id", async (req : any, res : any) => {
     try {
         const id = req.params.id

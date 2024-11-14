@@ -1,6 +1,6 @@
 export interface TimePoint {
     date : string,
-    timestamp : string,
+    timestamp : number,
     goldPricerice : string;
     silverPrice : string;
     platiniumPrice : string;
